@@ -21,8 +21,8 @@
         <input type="text"  name="nic" placeholder="nic" minlength="10" maxlength="12" pattern="(?=.*\d)(?=.*[A-Z]).{10,}" required><br>
         <label for="gender">Gender:</label>
 
-        <select name="gender" placeholder="Username" id="drop">
-            <option selected disabled >select the gender</option>
+        <select name="gender" placeholder="Username" id="drop" required>
+            <option value="" selected disabled >select the gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>

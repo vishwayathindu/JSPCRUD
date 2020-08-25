@@ -13,6 +13,14 @@
     <link rel="stylesheet" type="text/css" href="loginPageStyle.css">
 </head>
 <body>
+    <%
+        String StudentName=(String)session.getAttribute("StudentName");
+
+        //redirect user to login page if not logged in
+        if(StudentName==null){
+            response.sendRedirect("logIn.jsp");
+        }
+    %>
 
 
     <table >
