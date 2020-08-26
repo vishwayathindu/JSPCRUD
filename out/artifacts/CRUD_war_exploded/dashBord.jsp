@@ -14,12 +14,25 @@
 </head>
 <body>
     <%
-        String StudentName=(String)session.getAttribute("StudentName");
-
         //redirect user to login page if not logged in
-        if(StudentName==null){
-            response.sendRedirect("logIn.jsp");
+        try {
+            response.setHeader("Cache-Control","no-cache");
+            response.setHeader("Cache-Control","no-store");
+            response.setHeader("Pragma","no-cache");
+            response.setDateHeader ("Expires", 0);
+            String StudentName=(String)session.getAttribute("StudentName");
+
+            if(StudentName==null) {
+                response.sendRedirect("logIn.jsp");
+            }
         }
+        catch(Exception ex) {
+            out.println(ex);
+        }
+
+
+
+
     %>
 
 

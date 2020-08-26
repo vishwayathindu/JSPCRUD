@@ -19,9 +19,12 @@ public class studentUpdateServlet extends HttpServlet {
         String studentName= request.getParameter("studentName");
         String nic= request.getParameter("nic");
         String gender= request.getParameter("gender");
-        String password= request.getParameter("password");
 
-        studentModel s1= new studentModel(studentID,studentName,nic,gender,password);
+        studentModel s1= new studentModel();
+        s1.setStudentName(studentName);
+        s1.setGender(gender);
+        s1.setStudentId(studentID);
+        s1.setNic(nic);
 
         try {
             int results= studentConnector.studentUpdated(s1);

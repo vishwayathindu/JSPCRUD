@@ -211,17 +211,15 @@ public class studentConnector {
         int result = 0;
         Connection connection = null;
         PreparedStatement PreparedStatement=null;
-        String sql = "UPDATE student SET StudentName= ?,nIC= ?,password= ?,gender= ? WHERE studentId= ?";
+        String sql = "UPDATE student SET StudentName= ?,nIC= ?,gender= ? WHERE studentId= ?";
 
         try {
             connection = new db().getConnection();
             PreparedStatement = connection.prepareStatement(sql);
-            String password= new hash().hashPassword(s1.getPassword());
             PreparedStatement.setString(1, s1.getStudentName());
             PreparedStatement.setString(2, s1.getNic());
-            PreparedStatement.setString(3,password );
-            PreparedStatement.setString(4, s1.getGender());
-            PreparedStatement.setInt(5, s1.getStudentId());
+            PreparedStatement.setString(3, s1.getGender());
+            PreparedStatement.setInt(4, s1.getStudentId());
             result= PreparedStatement.executeUpdate();
             System.out.println("student updated working");
             return result;

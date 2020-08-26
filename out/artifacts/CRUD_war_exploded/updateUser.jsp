@@ -18,16 +18,14 @@
         <label >Student ID:</label>
         <input type="text"  name="studentID" value="<c:out value="${st.studentId}"/>" readonly/> <br/>
         <label  >Student Name:</label>
-        <input type="text"  name="studentName" value="<c:out value="${st.studentName}"/>" ><br/>
+        <input type="text"  name="studentName"  value="<c:out value="${st.studentName}"/>" ><br/>
         <label >NIC:</label>
-        <input type="text"  name="nic" value="<c:out value="${st.nic}"/>"><br>
+        <input type="text"  name="nic" minlength="10" maxlength="12" pattern="(?=.*\d{9})(?=.*[V]).{10,}" value="<c:out value="${st.nic}"/>"><br>
         <label >Gender:</label>
         <select name="gender" value="<c:out value="${st.gender}"/>" >
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
-        <label  >New Password:</label>
-        <input type="password"  name="password" minlength="10" maxlength="12" pattern="(?=.*\d)(?=.*[A-Z]).{10,}" value="<c:out value="${st.password}"/>"/><br/>
         <br/>
         <button type="submit" name="updateStudent" class="btn btn-primary btn-block btn-large">submit</button>
     </form>

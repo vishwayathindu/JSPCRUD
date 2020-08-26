@@ -18,7 +18,7 @@
         <label for="StudentName">Student Name:</label>
         <input type="text"  name="studentName" placeholder="Student Name" required><br>
         <label for="nic" placeholder="Username">NIC( Ex"972661627V"):</label>
-        <input type="text"  name="nic" placeholder="nic" minlength="10" maxlength="12" pattern="(?=.*\d{9})(?=.*[V]).{10,}" required><br>
+        <input type="text"  name="nic" placeholder="nic" minlength="10" maxlength="12" pattern="(?=.*\d{10})(?=.*[A-Z]).{10,}" required><br>
         <label for="gender">Gender:</label>
 
         <select name="gender" placeholder="Username" id="drop" required>
