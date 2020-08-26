@@ -18,7 +18,7 @@
         <label for="StudentName">Student Name:</label>
         <input type="text"  name="studentName" placeholder="Student Name" required><br>
         <label for="nic" placeholder="Username">NIC( Ex"972661627V"):</label>
-        <input type="text"  name="nic" placeholder="nic" minlength="10" maxlength="12" pattern="(?=.*\d)(?=.*[A-Z]).{10,}" required><br>
+        <input type="text"  name="nic" placeholder="nic" minlength="10" maxlength="12" pattern="(?=.*\d{9})(?=.*[V]).{10,}" required><br>
         <label for="gender">Gender:</label>
 
         <select name="gender" placeholder="Username" id="drop" required>
@@ -30,7 +30,7 @@
         <br>
 
         <label for="password">Password("use at least one capital latter,one simple latter, one special charcture and one number "):</label>
-        <input type="password"  name="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"required><br>
+        <input type="password"  name="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}"required><br>
         <label for="confirmPassword">Confirm Password:</label>
         <input type="password"  name="confirmPassword" placeholder="confirmPassword" required><br>
         <button type="submit" name="addUser" class="btn btn-primary btn-block btn-large">submit</button>

@@ -22,12 +22,12 @@
         <label >NIC:</label>
         <input type="text"  name="nic" value="<c:out value="${st.nic}"/>"><br>
         <label >Gender:</label>
-        <select name="gender" value="<c:out value="${st.gender}"/>">
+        <select name="gender" value="<c:out value="${st.gender}"/>" >
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
         <label  >New Password:</label>
-        <input type="password"  name="password" value="<c:out value="${st.password}"/>"/><br/>
+        <input type="password"  name="password" minlength="10" maxlength="12" pattern="(?=.*\d)(?=.*[A-Z]).{10,}" value="<c:out value="${st.password}"/>"/><br/>
         <br/>
         <button type="submit" name="updateStudent" class="btn btn-primary btn-block btn-large">submit</button>
     </form>

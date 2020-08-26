@@ -28,21 +28,23 @@ public class userRegisterServlet extends HttpServlet {
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("invalidLogin.jsp");
             dispatcher.forward(request, response);
-        }
-        //create student object
-        studentModel s1= new studentModel(0,studentName,nic,gender,password);
+        }else {
+            //create student object
 
-        //execute sql quary
-        try {
-            int result= studentConnector.registerUser(s1);
-            System.out.printf("new user added" + result);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("logIn.jsp");
-            dispatcher.forward(request, response);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            //execute sql quary
+            try {
+                studentModel s1 = new studentModel(0, studentName, nic, gender, password);
+                int result = studentConnector.registerUser(s1);
+                System.out.printf("new user added" + result);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("logIn.jsp");
+                dispatcher.forward(request, response);
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
         }
 
 
