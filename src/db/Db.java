@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class db {
+public class Db {
     public static Connection get;
     private final String url="jdbc:mysql://localhost:3307/webapp";
     private final String user="root";
@@ -15,7 +15,7 @@ public class db {
     public Connection getConnection()throws ClassNotFoundException,SQLException {
         Class.forName(driver);
         connection= DriverManager.getConnection(url,user,password);
-        System.out.println("dabase connection success");
+        //System.out.println("dabase connection success");
         return connection;
 
     }

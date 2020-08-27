@@ -12,11 +12,11 @@
     <link rel="stylesheet" type="text/css" href="loginPageStyle.css">
 </head>
 <body>
-    <div class="login">
-        <h1>Invalid Data</h1>
-        <form action="logOutServlet">
-            <button type="submit" name="addUser" class="btn btn-primary btn-block btn-large">Try Again</button>
-        </form>
-    </div >
+<div class="login">
+    <h1>Invalid Data</h1>
+    <form action="logOutServlet">
+        <button type="submit" name="addUser" class="btn btn-primary btn-block btn-large">Try Again</button>
+    </form>
+</div>
 </body>
 </html>

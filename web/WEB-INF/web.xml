@@ -10,7 +10,7 @@
 
     <servlet>
         <servlet-name>userRegisterServlet</servlet-name>
-        <servlet-class>controller.userRegisterServlet</servlet-class>
+        <servlet-class>controller.UserRegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>userRegisterServlet</servlet-name>
@@ -19,7 +19,7 @@
 
     <servlet>
         <servlet-name>loginServlet</servlet-name>
-        <servlet-class>controller.loginServlet</servlet-class>
+        <servlet-class>controller.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
@@ -27,26 +27,26 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>dashbordServlet</servlet-name>
-        <servlet-class>controller.dashbordServlet</servlet-class>
+        <servlet-name>DashbordServlet</servlet-name>
+        <servlet-class>controller.DashbordServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>dashbordServlet</servlet-name>
-        <url-pattern>/dashbordServlet</url-pattern>
+        <servlet-name>DashbordServlet</servlet-name>
+        <url-pattern>/DashbordServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>userdeleteServlet</servlet-name>
-        <servlet-class>controller.userDeleteServlet</servlet-class>
+        <servlet-name>UserDeleteServlet</servlet-name>
+        <servlet-class>controller.UserDeleteServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>userdeleteServlet</servlet-name>
-        <url-pattern>/userDeleteServlet</url-pattern>
+        <servlet-name>UserDeleteServlet</servlet-name>
+        <url-pattern>/UserDeleteServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
     <servlet-name>userUpdateServlet</servlet-name>
-    <servlet-class>controller.userUpdateServlet</servlet-class>
+    <servlet-class>controller.UserUpdateServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>userUpdateServlet</servlet-name>
@@ -55,7 +55,7 @@
 
     <servlet>
         <servlet-name>studentUpdateServlet</servlet-name>
-        <servlet-class>controller.studentUpdateServlet</servlet-class>
+        <servlet-class>controller.StudentUpdateServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>studentUpdateServlet</servlet-name>
@@ -64,11 +64,38 @@
 
     <servlet>
         <servlet-name>logOutServlet</servlet-name>
-        <servlet-class>controller.logOutServlet</servlet-class>
+        <servlet-class>controller.LogOutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>logOutServlet</servlet-name>
         <url-pattern>/logOutServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>StudentDeleteServlet</servlet-name>
+        <servlet-class>controller.StudentDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>StudentDeleteServlet</servlet-name>
+        <url-pattern>/StudentDeleteServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SearchUserServlet</servlet-name>
+        <servlet-class>controller.SearchUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchUserServlet</servlet-name>
+        <url-pattern>/SearchUserServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SortByNameServlet</servlet-name>
+        <servlet-class>controller.SortByNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SortByNameServlet</servlet-name>
+        <url-pattern>/SortByNameServlet</url-pattern>
     </servlet-mapping>
 
 

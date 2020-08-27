@@ -1,16 +1,16 @@
 package model;
 
-public class studentModel {
+public class StudentModel {
     private int studentId;
     private String studentName;
     private String nic;
     private String gender;
     private String password;
 
-    public studentModel() {
+    public StudentModel() {
     }
 
-    public studentModel(int studentId, String studentName, String nic, String gender, String password) {
+    public StudentModel(int studentId, String studentName, String nic, String gender, String password) {
         this.studentId = studentId;
         this.studentName = studentName;
         this.nic = nic;

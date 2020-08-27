@@ -15,14 +15,15 @@
 <body>
 <div class="login">
     <form action="studentUpdateServlet" method="post">
-        <label >Student ID:</label>
-        <input type="text"  name="studentID" value="<c:out value="${st.studentId}"/>" readonly/> <br/>
-        <label  >Student Name:</label>
-        <input type="text"  name="studentName"  value="<c:out value="${st.studentName}"/>" ><br/>
-        <label >NIC:</label>
-        <input type="text"  name="nic" minlength="10" maxlength="12" pattern="(?=.*\d{9})(?=.*[V]).{10,}" value="<c:out value="${st.nic}"/>"><br>
-        <label >Gender:</label>
-        <select name="gender" value="<c:out value="${st.gender}"/>" >
+        <label>Student ID:</label>
+        <input type="text" name="studentID" value="<c:out value="${st.studentId}"/>" readonly/> <br/>
+        <label>Student Name:</label>
+        <input type="text" name="studentName" value="<c:out value="${st.studentName}"/>"><br/>
+        <label>NIC:</label>
+        <input type="text" name="nic" minlength="10" maxlength="12" pattern="^([0-9]{9}[x|X|v|V]|[0-9]{12})$"
+               value="<c:out value="${st.nic}"/>"><br>
+        <label>Gender:</label>
+        <select name="gender" value="<c:out value="${st.gender}"/>">
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>

@@ -13,29 +13,32 @@
 
 </head>
 <body>
-    <div class="login">
+<div class="login">
     <form action="userRegisterServlet" method="post">
         <label for="StudentName">Student Name:</label>
-        <input type="text"  name="studentName" placeholder="Student Name" required><br>
+        <input type="text" name="studentName" placeholder="Student Name" required maxlength="255"><br>
         <label for="nic" placeholder="Username">NIC( Ex"972661627V"):</label>
-        <input type="text"  name="nic" placeholder="nic" minlength="10" maxlength="12" pattern="(?=.*\d{10})(?=.*[A-Z]).{10,}" required><br>
+        <input type="text" name="nic" placeholder="nic" minlength="10" maxlength="12"
+               pattern="^([0-9]{9}[x|X|v|V]|[0-9]{12})$" required><br>
         <label for="gender">Gender:</label>
 
         <select name="gender" placeholder="Username" id="drop" required>
-            <option value="" selected disabled >select the gender</option>
+            <option value="" selected disabled>select the gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
 
         <br>
 
-        <label for="password">Password("use at least one capital latter,one simple latter, one special charcture and one number "):</label>
-        <input type="password"  name="password" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}"required><br>
+        <label for="password">Password("use at least one capital latter,one simple latter, one special charcture and one
+            number "):</label>
+        <input type="password" name="password" placeholder="password"
+               pattern="(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}" required><br>
         <label for="confirmPassword">Confirm Password:</label>
-        <input type="password"  name="confirmPassword" placeholder="confirmPassword" required><br>
+        <input type="password" name="confirmPassword" placeholder="confirmPassword" required><br>
         <button type="submit" name="addUser" class="btn btn-primary btn-block btn-large">submit</button>
     </form>
-    </div>
+</div>
 
 </body>
 </html>

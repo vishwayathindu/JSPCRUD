@@ -1,11 +1,10 @@
 package controller;
 
-import connector.studentConnector;
-import model.studentModel;
+import connector.StudentConnector;
+import model.StudentModel;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,32 +12,35 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-//@WebServlet(name = "loginServlet")
-public class loginServlet extends HttpServlet {
+//@WebServlet(name = "LoginServlet")
+public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("login servlet stared working");
+        //System.out.println("login servlet stared working");
 
-        String loginStName= request.getParameter("loginStName");
-        String loginStPassword= request.getParameter("loginStPassword");
+        String loginStName = request.getParameter("loginStName");
+        String loginStPassword = request.getParameter("loginStPassword");
 
-        System.out.println("capture data"+loginStName+" "+loginStPassword);
+        //System.out.println("capture data" + loginStName + " " + loginStPassword);
 
         //creating the object
-        studentModel s1=new studentModel();
+        StudentModel s1 = new StudentModel();
         s1.setStudentName(loginStName);
         s1.setPassword(loginStPassword);
 
         try {
-            int result= studentConnector.studentLogin(s1);
-            if (result==0){
+            int result = StudentConnector.studentLogin(s1);
+            if (result == 0) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("invalidLogin.jsp");
                 dispatcher.forward(request, response);
-            }else{
-                System.out.printf("student log in success"+ result);
-                HttpSession session=request.getSession();
-                session.setAttribute("StudentName",loginStName);
-                response.sendRedirect(request.getContextPath()+"/dashbordServlet");
+            } else {
+                //System.out.printf("student log in success" + result);
+                int pageId = 1;
+                HttpSession session = request.getSession();
+                session.setAttribute("StudentName", loginStName);
+                session.setAttribute("pageId", pageId);
+
+                response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1");
             }
 
         } catch (SQLException e) {
