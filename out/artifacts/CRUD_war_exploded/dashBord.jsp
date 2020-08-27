@@ -50,10 +50,11 @@
     <tr>
         <th>studentId</th>
         <th>
-            <form action="SortByNameServlet" method="post">
-                <label>StudentName</label>
-                <input type="submit">
-            </form>
+
+            StudentName
+            <br>
+            <a href="DashbordServlet?pageId=1&sort=1" >sort</a>
+
         </th>
         <th>nIC</th>
         <th>gender</th>

@@ -13,7 +13,7 @@
 
 </head>
 <body>
-    <div class="login">
+<div class="login">
     <h1>Login</h1>
     <form action="loginServlet" method="post">
 
@@ -23,7 +23,7 @@
         <button type="submit" name="login" class="btn btn-primary btn-block btn-large">login</button>
     </form>
     <a href="userRegister.jsp">Sign Up</a>
-    </div>
+</div>
 
 
 </body>

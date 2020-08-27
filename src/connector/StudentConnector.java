@@ -255,11 +255,11 @@ public class StudentConnector {
         return s1;
     }
 
-    public List<StudentModel> getRecords(int start, int total) throws SQLException, ClassNotFoundException {
+    public List<StudentModel> getRecords(int start, int total, String columnName) throws SQLException, ClassNotFoundException {
         List<StudentModel> Stu = new ArrayList<>();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        String sql = "select * from student ORDER BY studentId DESC limit " + (start - 1) + "," + total;
+        String sql = "select * from student ORDER BY "+ columnName +" DESC limit " + (start - 1) + "," + total;
 
         try {
             connection = new Db().getConnection();
