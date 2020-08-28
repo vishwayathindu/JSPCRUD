@@ -53,7 +53,7 @@
 
             StudentName
             <br>
-            <a href="DashbordServlet?pageId=1&sort=1" >sort</a>
+            <a href="DashbordServlet?pageId=1&sort=StudentName" >sort</a>
 
         </th>
         <th>nIC</th>
@@ -92,7 +92,7 @@
                                 <td>${i}</td>
                             </c:when>
                             <c:otherwise>
-                                <td><a href="DashbordServlet?pageId=${i}">${i}</a></td>
+                                <td><a href="DashbordServlet?pageId=${i}&sort=${columnName}">${i}</a></td>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>

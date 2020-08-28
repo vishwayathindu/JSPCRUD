@@ -27,7 +27,8 @@ public class DashbordServlet extends HttpServlet {
         String sort= request.getParameter("sort");
         //System.out.println("pageid" + pageid);
         System.out.println("current value of sort is"+ sort);
-        if( sort ==null){
+        if(!sort.equals("StudentName")){
+            System.out.println("sort according to "+sort);
             int total = 5;
             if (pageid == 1) {
             } else {
@@ -35,6 +36,7 @@ public class DashbordServlet extends HttpServlet {
                 pageid = pageid * total + 1;
             }
             //System.out.printf("pageid" + pageid);
+
             int noOfRecords = StudentConnector.NoOfRecords();
             int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / total);
             String columnName= "studentId";
@@ -44,6 +46,7 @@ public class DashbordServlet extends HttpServlet {
                 request.setAttribute("listUser", listUser);
                 request.setAttribute("noOfPages", noOfPages);
                 request.setAttribute("currentPage", pageid);
+                request.setAttribute("columnName", columnName);
 
 
                 RequestDispatcher dispatcher = request.getRequestDispatcher("dashBord.jsp");
@@ -59,6 +62,7 @@ public class DashbordServlet extends HttpServlet {
                 pageid = pageid - 1;
                 pageid = pageid * total + 1;
             }
+            System.out.println("sort according to "+sort);
             //System.out.printf("pageid" + pageid);
             int noOfRecords = StudentConnector.NoOfRecords();
             int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / total);
@@ -69,6 +73,7 @@ public class DashbordServlet extends HttpServlet {
                 request.setAttribute("listUser", listUser);
                 request.setAttribute("noOfPages", noOfPages);
                 request.setAttribute("currentPage", pageid);
+                request.setAttribute("columnName", columnName);
 
 
                 RequestDispatcher dispatcher = request.getRequestDispatcher("dashBord.jsp");

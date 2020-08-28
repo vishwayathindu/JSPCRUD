@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("StudentName", loginStName);
                 session.setAttribute("pageId", pageId);
 
-                response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1");
+                response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1&sort=studentId");
             }
 
         } catch (SQLException e) {
