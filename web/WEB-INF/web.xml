@@ -98,6 +98,16 @@
         <url-pattern>/SortByNameServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ReportServlet</servlet-name>
+        <servlet-class>controller.ReportServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReportServlet</servlet-name>
+        <url-pattern>/ReportServlet</url-pattern>
+    </servlet-mapping>
+
+
 
 
 </web-app>

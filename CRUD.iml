@@ -22,5 +22,21 @@
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.5.49" level="application_server_libraries" />
     <orderEntry type="library" name="mysql-connector-java-5.1.44-bin" level="project" />
     <orderEntry type="library" name="jstl-1.2" level="project" />
+    <orderEntry type="library" name="commons-beanutils-1.8.2" level="project" />
+    <orderEntry type="library" name="jasperreports-extensions-3.5.3" level="project" />
+    <orderEntry type="library" name="jstl-1.21" level="project" />
+    <orderEntry type="library" name="jasperreports-5.5.0" level="project" />
+    <orderEntry type="library" name="commons-javaflow-20060411" level="project" />
+    <orderEntry type="library" name="commons-logging-1.1" level="project" />
+    <orderEntry type="library" name="commons-collections-3.2.1" level="project" />
+    <orderEntry type="library" name="commons-javaflow-200604111" level="project" />
+    <orderEntry type="library" name="commons-beanutils-1.8.21" level="project" />
+    <orderEntry type="library" name="commons-digester-2.1" level="project" />
+    <orderEntry type="library" name="groovy-all-2.0.1" level="project" />
+    <orderEntry type="library" name="iText-2.1.7.js2" level="project" />
+    <orderEntry type="library" name="jasperreports-extensions-3.5.31" level="project" />
+    <orderEntry type="library" name="jasperreports-fonts-5.5.0" level="project" />
+    <orderEntry type="library" name="jdt-compiler-3.1.1" level="project" />
+    <orderEntry type="library" name="itextpdf-5.5.9" level="project" />
   </component>
 </module>

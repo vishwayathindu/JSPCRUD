@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -22,27 +23,28 @@ public class DashbordServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         StudentConnector studentCon = new StudentConnector();
-        String sortvalue=request.getParameter("sortvalue");
+        HttpSession session=request.getSession(false);
+        int id= (int)session.getAttribute("sId");
         int pageid = Integer.parseInt(request.getParameter("pageId"));
         String sort= request.getParameter("sort");
-        //System.out.println("pageid" + pageid);
-        System.out.println("current value of sort is"+ sort);
-        if(!sort.equals("StudentName")){
-            System.out.println("sort according to "+sort);
-            int total = 5;
-            if (pageid == 1) {
-            } else {
-                pageid = pageid - 1;
-                pageid = pageid * total + 1;
-            }
-            //System.out.printf("pageid" + pageid);
 
+//        System.out.println("pageid" + pageid);
+//        System.out.println("current value of sort is"+ sort);
+        int total = 5;
+        if (pageid == 1) {
+        } else {
+            pageid = pageid - 1;
+            pageid = pageid * total + 1;
+        }
+        if(!sort.equals("StudentName")){
+//            System.out.println("sort according to "+sort);
+//            System.out.printf("pageid" + pageid);
             int noOfRecords = StudentConnector.NoOfRecords();
             int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / total);
             String columnName= "studentId";
             List<StudentModel> listUser = null;
             try {
-                listUser = studentCon.getRecords(pageid, total,columnName);
+                listUser = studentCon.getRecords(pageid, total,columnName,id);
                 request.setAttribute("listUser", listUser);
                 request.setAttribute("noOfPages", noOfPages);
                 request.setAttribute("currentPage", pageid);
@@ -56,12 +58,6 @@ public class DashbordServlet extends HttpServlet {
             }
 
         }else{
-            int total = 5;
-            if (pageid == 1) {
-            } else {
-                pageid = pageid - 1;
-                pageid = pageid * total + 1;
-            }
             System.out.println("sort according to "+sort);
             //System.out.printf("pageid" + pageid);
             int noOfRecords = StudentConnector.NoOfRecords();
@@ -69,15 +65,15 @@ public class DashbordServlet extends HttpServlet {
             String columnName= "StudentName";
             List<StudentModel> listUser = null;
             try {
-                listUser = studentCon.getRecords(pageid, total,columnName);
+                listUser = studentCon.getRecords(pageid, total,columnName,id);
                 request.setAttribute("listUser", listUser);
                 request.setAttribute("noOfPages", noOfPages);
                 request.setAttribute("currentPage", pageid);
                 request.setAttribute("columnName", columnName);
 
-
                 RequestDispatcher dispatcher = request.getRequestDispatcher("dashBord.jsp");
                 dispatcher.forward(request, response);
+
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }

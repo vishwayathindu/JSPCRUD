@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="commons-beanutils-1.8.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-beanutils-1.8.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-collections-3.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-digester-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-javaflow-20060411.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-logging-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/groovy-all-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/iText-2.1.7.js2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/itextpdf-5.5.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jasperreports-5.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jasperreports-extensions-3.5.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jdt-compiler-3.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jstl-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="commons-javaflow-20060411">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/j2ee-crud-dao-master/j2ee-crud-dao-master/web/WEB-INF/lib/commons-javaflow-20060411.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/j2ee-crud-dao-master/j2ee-crud-dao-master/web/WEB-INF/lib/commons-digester-2.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/j2ee-crud-dao-master/j2ee-crud-dao-master/web/WEB-INF/lib/commons-logging-1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/j2ee-crud-dao-master/j2ee-crud-dao-master/web/WEB-INF/lib/commons-collections-3.2.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/j2ee-crud-dao-master/j2ee-crud-dao-master/web/WEB-INF/lib/commons-beanutils-1.8.2.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/j2ee-crud-dao-master/j2ee-crud-dao-master/web/WEB-INF/lib/groovy-all-2.0.1.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/j2ee-crud-dao-master/j2ee-crud-dao-master/web/WEB-INF/lib/jasperreports-extensions-3.5.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

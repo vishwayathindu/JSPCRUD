@@ -41,7 +41,7 @@
     <tr>
         <td colspan="6">
             <form action="SearchUserServlet" method="post">
-                <label for="StudentName">Search by Student Name:</label>
+                <%--@declare id="studentname"--%><label for="StudentName">Search by Student Name:</label>
                 <input type="text" name="studentName" placeholder="Student Name">
                 <button type="submit" name="searchUser" class="btn btn-primary btn-block btn-large">Search</button>
             </form>
@@ -96,6 +96,20 @@
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
+                </tr>
+            </table>
+
+
+        </td>
+
+
+    </tr>
+    <tr>
+        <td colspan="6">
+            <table cellpadding="5" cellspacing="5">
+                <tr>
+
+                    <td><a href="ReportServlet">print</a></td>
                 </tr>
             </table>
 

@@ -26,12 +26,14 @@ public class StudentDeleteServlet extends HttpServlet {
         StudentModel s1 = new StudentModel();
         s1.setStudentId(studentId);
         StudentConnector st = new StudentConnector();
+
         try {
             StudentModel st2 = st.updateStudentList(s1);
 
             //System.out.println("user update servelt pass data and retrive st2");
             RequestDispatcher dispatcher = request.getRequestDispatcher("userDelete.jsp");
             request.setAttribute("st", st2);
+            request.setAttribute("studentId",studentId);
             dispatcher.forward(request, response);
 
 

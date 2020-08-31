@@ -50,8 +50,8 @@ public class StudentConnector {
 
     }
 
-    public static int studentLogin(StudentModel s1) throws SQLException, ClassNotFoundException {
-        int result = 0;
+    public static StudentModel studentLogin(StudentModel s1) throws SQLException, ClassNotFoundException {
+
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         String sql = "SELECT * FROM `student` WHERE StudentName= ? and password = ?";
@@ -69,11 +69,14 @@ public class StudentConnector {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                //System.out.println("Login Success");
-                result = 1;
+                int studentId = resultSet.getInt("studentId");
+                s1 = new StudentModel();
+                s1.setStudentId( studentId);
+
             } else {
-                //System.out.println("Login Error");
-                result = 0;
+                s1 = new StudentModel();
+                s1.setStudentId(0);
+
             }
 
 
@@ -90,7 +93,7 @@ public class StudentConnector {
         }
 
 
-        return result;
+        return s1;
     }
 
     public static int deleteStudent(StudentModel s1) throws SQLException {
@@ -173,18 +176,19 @@ public class StudentConnector {
         return noOfRecords;
     }
 
-    public List<StudentModel> ShowTable(String stName) throws SQLException {
+    public List<StudentModel> ShowTable(String stName, int id) throws SQLException {
         List<StudentModel> Student = new ArrayList<>();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        final String sql = "select * from student where StudentName =? or nIC= ?";
+        final String sql = "select * from student where studentId !=? and StudentName =? or nIC= ?";
         //System.out.printf("searched student name is"+stName);
 
         try {
             connection = new Db().getConnection();
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,stName);
+            preparedStatement.setInt(1,id);
             preparedStatement.setString(2,stName);
+            preparedStatement.setString(3,stName);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
@@ -255,11 +259,11 @@ public class StudentConnector {
         return s1;
     }
 
-    public List<StudentModel> getRecords(int start, int total, String columnName) throws SQLException, ClassNotFoundException {
+    public List<StudentModel> getRecords(int start, int total, String columnName,int id) throws SQLException, ClassNotFoundException {
         List<StudentModel> Stu = new ArrayList<>();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        String sql = "select * from student ORDER BY "+ columnName +" DESC limit " + (start - 1) + "," + total;
+        String sql = "select * from student where studentId != "+id+" ORDER BY "+ columnName +" DESC limit " + (start - 1) + "," + total;
 
         try {
             connection = new Db().getConnection();
@@ -293,6 +297,46 @@ public class StudentConnector {
         }
         return Stu;
     }
+
+    public List<StudentModel> PrintRecords() throws SQLException, ClassNotFoundException {
+        List<StudentModel> Stu = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        String sql = "select * from student ";
+
+        try {
+            connection = new Db().getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+                int studentId = rs.getInt("studentId");
+                String StudentName = rs.getString("StudentName");
+                String nIC = rs.getString("nIC");
+                String password = rs.getString("password");
+                String gender = rs.getString("gender");
+                Stu.add(new StudentModel(studentId, StudentName, nIC, password, gender));
+
+                //System.out.println("data return" + studentId + "" + StudentName + "" + nIC + "" + password + "" + gender);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            //System.out.println(e);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+
+        }
+        return Stu;
+    }
+
 
 
 }

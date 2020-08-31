@@ -29,18 +29,18 @@ public class LoginServlet extends HttpServlet {
         s1.setPassword(loginStPassword);
 
         try {
-            int result = StudentConnector.studentLogin(s1);
-            if (result == 0) {
+             StudentModel s2= StudentConnector.studentLogin(s1);
+             int id=s2.getStudentId();
+            if ( id == 0) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("invalidLogin.jsp");
                 dispatcher.forward(request, response);
             } else {
                 //System.out.printf("student log in success" + result);
-                int pageId = 1;
+
                 HttpSession session = request.getSession();
                 session.setAttribute("StudentName", loginStName);
-                session.setAttribute("pageId", pageId);
-
-                response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1&sort=studentId");
+                session.setAttribute("sId", id);
+                response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1&sort=student");
             }
 
         } catch (SQLException e) {
