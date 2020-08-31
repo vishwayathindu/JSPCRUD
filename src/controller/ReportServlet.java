@@ -25,13 +25,14 @@ import java.util.logging.Logger;
 
 //@WebServlet(name = "ReportServlet")
 public class ReportServlet extends HttpServlet {
-    private String DOWNLOAD_FILE_NAME = "postReport.pdf"; //file name of the downloadable file
-    private String FILE_TYPE = "application/pdf"; //file type of the file(pdf)
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String DOWNLOAD_FILE_NAME = "postReport.pdf"; //file name of the downloadable file
+        String FILE_TYPE = "application/pdf"; //file type of the file(pdf)
         StudentConnector studentCon = new StudentConnector();
         List<StudentModel> listItems = null;
         try {
@@ -41,7 +42,7 @@ public class ReportServlet extends HttpServlet {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        List<StudentModel> postData = new ArrayList<>();
+        List<StudentModel> studentData = new ArrayList<>();
         String reportPath;
         OutputStream outputStream = null;
         JasperReport jasperReport;
@@ -54,13 +55,13 @@ public class ReportServlet extends HttpServlet {
             reportPath = request.getServletContext().getRealPath("/ireport") + "\\report.jrxml";
 
             reportParameters = new HashMap();
-            reportParameters.put("title", "Post Feeds");
+            reportParameters.put("studentId", "studentId");
 
             jasperDesign = JRXmlLoader.load(reportPath);
             jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
-            postData= studentCon.PrintRecords();
-            reportSource = new JRBeanCollectionDataSource(postData,false); //set the database values to the reportSource
+            studentData= studentCon.PrintRecords();
+            reportSource = new JRBeanCollectionDataSource(studentData,false); //set the database values to the reportSource
 
             //byteStream
             byte[] byteStream;

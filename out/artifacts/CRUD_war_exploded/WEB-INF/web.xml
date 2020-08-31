@@ -107,6 +107,15 @@
         <url-pattern>/ReportServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ExcelDataServlet</servlet-name>
+        <servlet-class>controller.ExcelDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExcelDataServlet</servlet-name>
+        <url-pattern>/ExcelDataServlet</url-pattern>
+    </servlet-mapping>
+
 
 
 

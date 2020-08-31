@@ -109,7 +109,8 @@
             <table cellpadding="5" cellspacing="5">
                 <tr>
 
-                    <td><a href="ReportServlet">print</a></td>
+                    <td><a href="ReportServlet">Download data PDf</a></td>
+                    <td><a href="ExcelDataServlet">Download data Excel</a></td>
                 </tr>
             </table>
 
