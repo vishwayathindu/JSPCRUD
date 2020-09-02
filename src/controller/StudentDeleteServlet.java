@@ -33,7 +33,7 @@ public class StudentDeleteServlet extends HttpServlet {
             //System.out.println("user update servelt pass data and retrive st2");
             RequestDispatcher dispatcher = request.getRequestDispatcher("userDelete.jsp");
             request.setAttribute("st", st2);
-            request.setAttribute("studentId",studentId);
+            request.setAttribute("studentId", studentId);
             dispatcher.forward(request, response);
 
 

@@ -3,7 +3,6 @@ package controller;
 import connector.StudentConnector;
 import model.StudentModel;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,16 +25,16 @@ public class StudentUpdateServlet extends HttpServlet {
         // matching nic
         Pattern patt = Pattern.compile("^([0-9]{9}[x|X|v|V]|[0-9]{12})$");
         Matcher nicM = patt.matcher(nic);
-        boolean matches= nicM.matches();
+        boolean matches = nicM.matches();
 
-        if(studentName =="" || nic== ""){
+        if (studentName == "" || nic == "") {
 //            System.out.printf("student name"+ studentName);
-            response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1");
-        }else if(!matches == true){
+            response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1&sort=student");
+        } else if (!matches == true) {
 //            System.out.println("nic did n't matches"+matches);
-            response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1");
+            response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1&sort=student");
 
-        }else{
+        } else {
             StudentModel s1 = new StudentModel();
             s1.setStudentName(studentName);
             s1.setGender(gender);
@@ -44,7 +43,7 @@ public class StudentUpdateServlet extends HttpServlet {
 
             try {
                 StudentConnector.studentUpdated(s1);
-                response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1");
+                response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1&sort=student");
 
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -20,12 +20,12 @@ public class SearchUserServlet extends HttpServlet {
 
         StudentConnector studentCon = new StudentConnector();
         String studentName = request.getParameter("studentName");
-        HttpSession session=request.getSession(false);
-        int id= (int)session.getAttribute("sId");
+        HttpSession session = request.getSession(false);
+        int id = (int) session.getAttribute("sId");
         List<StudentModel> listUser = null;
         try {
 
-            listUser = studentCon.ShowTable(studentName,id);
+            listUser = studentCon.ShowTable(studentName, id);
             request.setAttribute("listUser", listUser);
             RequestDispatcher dispatcher = request.getRequestDispatcher("dashBord.jsp");
             dispatcher.forward(request, response);

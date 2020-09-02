@@ -28,26 +28,26 @@ public class UserRegisterServlet extends HttpServlet {
         // matching nic
         Pattern patt = Pattern.compile("^([0-9]{9}[x|X|v|V]|[0-9]{12})$");
         Matcher nicM = patt.matcher(nic);
-        boolean matches= nicM.matches();
+        boolean matches = nicM.matches();
 
         //matching password
         Pattern pass = Pattern.compile("(?=.*\\d)(?=.*[a-z])(?=.*[!@#$%^&*])(?=.*[A-Z]).{8,}");
-        Matcher passM = pass .matcher(password);
-        boolean passMatches= passM.matches();
+        Matcher passM = pass.matcher(password);
+        boolean passMatches = passM.matches();
 
 //        System.out.println("nic matches"+matches);
 //        System.out.println("password matches"+passMatches);
 
-        if(studentName =="" || nic== ""){
+        if (studentName == "" || nic == "") {
 //            System.out.printf("student name"+ studentName);
             RequestDispatcher dispatcher = request.getRequestDispatcher("invalidLogin.jsp");
             dispatcher.forward(request, response);
-        }else if(!matches == true){
+        } else if (!matches == true) {
 //            System.out.println("nic did n't matches"+matches);
             RequestDispatcher dispatcher = request.getRequestDispatcher("invalidLogin.jsp");
             dispatcher.forward(request, response);
 
-        } else if (!passMatches == true){
+        } else if (!passMatches == true) {
 //            System.out.println("password did n't matches "+passMatches);
             RequestDispatcher dispatcher = request.getRequestDispatcher("invalidLogin.jsp");
             dispatcher.forward(request, response);

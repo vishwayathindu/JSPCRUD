@@ -1,12 +1,11 @@
 package controller;
 
-import connector.StudentConnector;
+import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;import connector.StudentConnector;
 import model.StudentModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.export.JRXlsExporterParameter;
-import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 import javax.servlet.ServletException;
@@ -33,7 +32,7 @@ public class ExcelDataServlet extends HttpServlet {
         String DOWNLOAD_FILE_NAME = "postReport.xlsx"; //file name of the downloadable file
         String FILE_TYPE = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
-        StudentConnector ps= new StudentConnector();
+        StudentConnector ps = new StudentConnector();
         List<StudentModel> studentData = new ArrayList<>();
         String reportPath;
         OutputStream outputStream;
@@ -53,14 +52,14 @@ public class ExcelDataServlet extends HttpServlet {
         reportSource = new JRBeanCollectionDataSource(studentData); //set the database values to the reportSource
         reportPath = request.getServletContext().getRealPath("/ireport") + "\\report.jrxml";
 
-        try{
+        try {
             reportParameters = new HashMap();
             reportParameters.put("studentId", "studentId");
 
             jasperDesign = JRXmlLoader.load(new FileInputStream(reportPath));
             jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
-            jasperPrint = JasperFillManager.fillReport(jasperReport, reportParameters,reportSource );//fill the report
+            jasperPrint = JasperFillManager.fillReport(jasperReport, reportParameters, reportSource);//fill the report
 
             //response
             response.setHeader("Content-Disposition", "attachement; filename=" + DOWNLOAD_FILE_NAME);
@@ -81,7 +80,7 @@ public class ExcelDataServlet extends HttpServlet {
             exporterXLS.setParameter(JRXlsExporterParameter.OUTPUT_FILE_NAME, DOWNLOAD_FILE_NAME);
 
             exporterXLS.exportReport();
-        }catch (JRException e) {
+        } catch (JRException e) {
             e.printStackTrace();
         }
 

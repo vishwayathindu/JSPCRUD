@@ -101,12 +101,12 @@
 				<text><![CDATA[nic]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="333" y="0" width="111" height="20" uuid="ad229dc2-9972-40cb-a2b7-9c5b0b5acc6b"/>
-				<text><![CDATA[gender]]></text>
+				<reportElement x="318" y="0" width="111" height="20" uuid="ad229dc2-9972-40cb-a2b7-9c5b0b5acc6b"/>
+				<text><![CDATA[password]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="444" y="0" width="111" height="20" uuid="1b25a7d8-2139-43ed-b9f7-36ff881c9db9"/>
-				<text><![CDATA[password]]></text>
+				<text><![CDATA[gender]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -125,7 +125,7 @@
 				<textFieldExpression><![CDATA[$F{nic}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="333" y="0" width="111" height="20" uuid="665207d5-5d29-402c-b5c0-7947121d80d5"/>
+				<reportElement x="318" y="0" width="111" height="20" uuid="665207d5-5d29-402c-b5c0-7947121d80d5"/>
 				<textFieldExpression><![CDATA[$F{gender}]]></textFieldExpression>
 			</textField>
 			<textField>

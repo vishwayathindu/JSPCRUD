@@ -24,7 +24,7 @@ public class UserDeleteServlet extends HttpServlet {
 
             int result = StudentConnector.deleteStudent(st);
             //System.out.printf("user delete servelet executed" + result);
-            response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1");
+            response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1&sort=student");
 
         } catch (SQLException e) {
             e.printStackTrace();

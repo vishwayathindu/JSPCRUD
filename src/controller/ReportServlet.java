@@ -1,6 +1,5 @@
 package controller;
 
-import com.sun.javafx.collections.MappingChange;
 import connector.StudentConnector;
 import model.StudentModel;
 import net.sf.jasperreports.engine.*;
@@ -9,7 +8,6 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,7 +34,7 @@ public class ReportServlet extends HttpServlet {
         StudentConnector studentCon = new StudentConnector();
         List<StudentModel> listItems = null;
         try {
-            listItems= studentCon.PrintRecords();
+            listItems = studentCon.PrintRecords();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -60,12 +58,12 @@ public class ReportServlet extends HttpServlet {
             jasperDesign = JRXmlLoader.load(reportPath);
             jasperReport = JasperCompileManager.compileReport(jasperDesign);
 
-            studentData= studentCon.PrintRecords();
-            reportSource = new JRBeanCollectionDataSource(studentData,false); //set the database values to the reportSource
+            studentData = studentCon.PrintRecords();
+            reportSource = new JRBeanCollectionDataSource(studentData, false); //set the database values to the reportSource
 
             //byteStream
             byte[] byteStream;
-            byteStream = JasperRunManager.runReportToPdf(jasperReport,reportParameters, reportSource);
+            byteStream = JasperRunManager.runReportToPdf(jasperReport, reportParameters, reportSource);
 
             //response
             response.setHeader("Content-Disposition", "attachement; filename=" + DOWNLOAD_FILE_NAME);
@@ -82,7 +80,7 @@ public class ReportServlet extends HttpServlet {
             Logger.getLogger(ReportServlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             try {
                 outputStream.close();
             } catch (IOException ex) {

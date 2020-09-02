@@ -29,9 +29,9 @@ public class LoginServlet extends HttpServlet {
         s1.setPassword(loginStPassword);
 
         try {
-             StudentModel s2= StudentConnector.studentLogin(s1);
-             int id=s2.getStudentId();
-            if ( id == 0) {
+            StudentModel s2 = StudentConnector.studentLogin(s1);
+            int id = s2.getStudentId();
+            if (id == 0) {
                 RequestDispatcher dispatcher = request.getRequestDispatcher("invalidLogin.jsp");
                 dispatcher.forward(request, response);
             } else {

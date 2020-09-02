@@ -22,36 +22,36 @@ public class StudentModel {
         return studentId;
     }
 
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public String getNic() {
-        return nic;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
     public void setStudentId(int studentId) {
         this.studentId = studentId;
+    }
+
+    public String getStudentName() {
+        return studentName;
     }
 
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
 
+    public String getNic() {
+        return nic;
+    }
+
     public void setNic(String nic) {
         this.nic = nic;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {

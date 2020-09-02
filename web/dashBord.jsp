@@ -53,7 +53,7 @@
 
             StudentName
             <br>
-            <a href="DashbordServlet?pageId=1&sort=StudentName" >sort</a>
+            <a href="DashbordServlet?pageId=1&sort=StudentName">sort</a>
 
         </th>
         <th>nIC</th>
@@ -111,6 +111,7 @@
 
                     <td><a href="ReportServlet">Download data PDf</a></td>
                     <td><a href="ExcelDataServlet">Download data Excel</a></td>
+
                 </tr>
             </table>
 

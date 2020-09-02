@@ -23,10 +23,10 @@ public class DashbordServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         StudentConnector studentCon = new StudentConnector();
-        HttpSession session=request.getSession(false);
-        int id= (int)session.getAttribute("sId");
+        HttpSession session = request.getSession(false);
+        int id = (int) session.getAttribute("sId");
         int pageid = Integer.parseInt(request.getParameter("pageId"));
-        String sort= request.getParameter("sort");
+        String sort = request.getParameter("sort");
 
 //        System.out.println("pageid" + pageid);
 //        System.out.println("current value of sort is"+ sort);
@@ -36,15 +36,15 @@ public class DashbordServlet extends HttpServlet {
             pageid = pageid - 1;
             pageid = pageid * total + 1;
         }
-        if(!sort.equals("StudentName")){
+        if (!sort.equals("StudentName")) {
 //            System.out.println("sort according to "+sort);
 //            System.out.printf("pageid" + pageid);
             int noOfRecords = StudentConnector.NoOfRecords();
             int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / total);
-            String columnName= "studentId";
+            String columnName = "studentId";
             List<StudentModel> listUser = null;
             try {
-                listUser = studentCon.getRecords(pageid, total,columnName,id);
+                listUser = studentCon.getRecords(pageid, total, columnName, id);
                 request.setAttribute("listUser", listUser);
                 request.setAttribute("noOfPages", noOfPages);
                 request.setAttribute("currentPage", pageid);
@@ -57,15 +57,15 @@ public class DashbordServlet extends HttpServlet {
                 e.printStackTrace();
             }
 
-        }else{
-            System.out.println("sort according to "+sort);
+        } else {
+            System.out.println("sort according to " + sort);
             //System.out.printf("pageid" + pageid);
             int noOfRecords = StudentConnector.NoOfRecords();
             int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / total);
-            String columnName= "StudentName";
+            String columnName = "StudentName";
             List<StudentModel> listUser = null;
             try {
-                listUser = studentCon.getRecords(pageid, total,columnName,id);
+                listUser = studentCon.getRecords(pageid, total, columnName, id);
                 request.setAttribute("listUser", listUser);
                 request.setAttribute("noOfPages", noOfPages);
                 request.setAttribute("currentPage", pageid);
