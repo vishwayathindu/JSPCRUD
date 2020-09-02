@@ -23,16 +23,22 @@ public class SearchUserServlet extends HttpServlet {
         HttpSession session = request.getSession(false);
         int id = (int) session.getAttribute("sId");
         List<StudentModel> listUser = null;
-        try {
 
-            listUser = studentCon.ShowTable(studentName, id);
-            request.setAttribute("listUser", listUser);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("dashBord.jsp");
-            dispatcher.forward(request, response);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        if (studentName == "") {
+
+            response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1&sort=student");
+        } else {
+            try {
+
+                listUser = studentCon.ShowTable(studentName, id);
+                request.setAttribute("listUser", listUser);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("dashBord.jsp");
+                dispatcher.forward(request, response);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

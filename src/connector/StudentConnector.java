@@ -180,15 +180,12 @@ public class StudentConnector {
         List<StudentModel> Student = new ArrayList<>();
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        final String sql = "select * from student where studentId !=? and StudentName =? or nIC= ?";
+        final String sql = "select * from student where (StudentName  like  '"+stName+"%' or nIC like  '"+stName+"%') and studentId !="+id+"";
         //System.out.printf("searched student name is"+stName);
 
         try {
             connection = new Db().getConnection();
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,id);
-            preparedStatement.setString(2,stName);
-            preparedStatement.setString(3,stName);
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {

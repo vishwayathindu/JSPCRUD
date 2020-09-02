@@ -27,57 +27,55 @@ public class DashbordServlet extends HttpServlet {
         int id = (int) session.getAttribute("sId");
         int pageid = Integer.parseInt(request.getParameter("pageId"));
         String sort = request.getParameter("sort");
-
-//        System.out.println("pageid" + pageid);
-//        System.out.println("current value of sort is"+ sort);
         int total = 5;
         if (pageid == 1) {
         } else {
             pageid = pageid - 1;
             pageid = pageid * total + 1;
         }
-        if (!sort.equals("StudentName")) {
-//            System.out.println("sort according to "+sort);
-//            System.out.printf("pageid" + pageid);
-            int noOfRecords = StudentConnector.NoOfRecords();
-            int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / total);
-            String columnName = "studentId";
-            List<StudentModel> listUser = null;
-            try {
-                listUser = studentCon.getRecords(pageid, total, columnName, id);
-                request.setAttribute("listUser", listUser);
-                request.setAttribute("noOfPages", noOfPages);
-                request.setAttribute("currentPage", pageid);
-                request.setAttribute("columnName", columnName);
+        if (session != null && id != 0) {
+
+            if (!sort.equals("StudentName")) {
+
+                int noOfRecords = StudentConnector.NoOfRecords();
+                int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / total);
+                String columnName = "studentId";
+                List<StudentModel> listUser = null;
+                try {
+                    listUser = studentCon.getRecords(pageid, total, columnName, id);
+                    request.setAttribute("listUser", listUser);
+                    request.setAttribute("noOfPages", noOfPages);
+                    request.setAttribute("currentPage", pageid);
+                    request.setAttribute("columnName", columnName);
+
+                } catch (SQLException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+
+                int noOfRecords = StudentConnector.NoOfRecords();
+                int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / total);
+                String columnName = "StudentName";
+                List<StudentModel> listUser = null;
+                try {
+                    listUser = studentCon.getRecords(pageid, total, columnName, id);
+                    request.setAttribute("listUser", listUser);
+                    request.setAttribute("noOfPages", noOfPages);
+                    request.setAttribute("currentPage", pageid);
+                    request.setAttribute("columnName", columnName);
 
 
-                RequestDispatcher dispatcher = request.getRequestDispatcher("dashBord.jsp");
-                dispatcher.forward(request, response);
-            } catch (SQLException | ClassNotFoundException e) {
-                e.printStackTrace();
+                } catch (SQLException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
             }
+            RequestDispatcher dispatcher = request.getRequestDispatcher("dashBord.jsp");
+            dispatcher.forward(request, response);
 
         } else {
-            System.out.println("sort according to " + sort);
-            //System.out.printf("pageid" + pageid);
-            int noOfRecords = StudentConnector.NoOfRecords();
-            int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / total);
-            String columnName = "StudentName";
-            List<StudentModel> listUser = null;
-            try {
-                listUser = studentCon.getRecords(pageid, total, columnName, id);
-                request.setAttribute("listUser", listUser);
-                request.setAttribute("noOfPages", noOfPages);
-                request.setAttribute("currentPage", pageid);
-                request.setAttribute("columnName", columnName);
-
-                RequestDispatcher dispatcher = request.getRequestDispatcher("dashBord.jsp");
-                dispatcher.forward(request, response);
-
-            } catch (SQLException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-
+            request.getRequestDispatcher("logIn.jsp").include(request, response);
         }
 
 

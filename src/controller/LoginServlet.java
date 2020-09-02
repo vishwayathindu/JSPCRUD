@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
             } else {
                 //System.out.printf("student log in success" + result);
 
-                HttpSession session = request.getSession();
+                HttpSession session = request.getSession(true);
                 session.setAttribute("StudentName", loginStName);
                 session.setAttribute("sId", id);
                 response.sendRedirect(request.getContextPath() + "/DashbordServlet?pageId=1&sort=student");

@@ -1,6 +1,5 @@
 package controller;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,9 +16,8 @@ public class LogOutServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
-        session.invalidate();
-        RequestDispatcher dispatcher = request.getRequestDispatcher("logIn.jsp");
-        dispatcher.forward(request, response);
+        session.setAttribute("sId", 0);
+        response.sendRedirect(request.getContextPath() + "logIn.jsp");
 
 
     }
